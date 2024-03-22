@@ -27,7 +27,8 @@ public class TarjetaCredito {
 		return descuento.aplicarDescuento(costoTotalBebidas, costoTotalPlatos);
 	}
 
-	public int obtenerSaldo() {
-		return (int) saldoActual;
+	public boolean saldoEsIgualAUn(double monto) {
+		return saldoActual == monto;
+
 	}
 }
