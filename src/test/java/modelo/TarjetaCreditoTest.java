@@ -13,15 +13,15 @@ class TarjetaCreditoTest {
 
 	@Test
 	public void pagarConTarjetaVisaTest() {
-		Bebida bebidaSpeed = new Bebida(1000, "Speed");
-		Plato platoEmpanadas = new Plato("Empanadas", 8000);
+		var bebidaSpeed = new Bebida(1000, "Speed");
+		var platoEmpanadas = new Plato("Empanadas", 8000);
 
-		Pedido pedido = new Pedido(LocalDate.now(), LocalTime.now());
+		var pedido = new Pedido(LocalDate.now(), LocalTime.now());
 		pedido.agregarPlato(platoEmpanadas, 1);
 		pedido.agregarBebida(bebidaSpeed, 2);
 		pedido.confirmarPedido();
 
-		TarjetaCredito tarjetaCredito = new TarjetaCredito(23453423, "45260989", 11000, "Visa", new DescuentoVisa(3));
+		var tarjetaCredito = new TarjetaCredito(23453423, "45260989", 11000, "Visa", new DescuentoVisa(3));
 		tarjetaCredito.pagar(pedido.calcularCostoTotalBebidas(), pedido.calcularCostoTotalPlatos(), 2);
 
 		assertEquals(861, tarjetaCredito.obtenerSaldo());
@@ -29,15 +29,15 @@ class TarjetaCreditoTest {
 
 	@Test
 	public void pagarConTarjetaMastercardTest() {
-		Bebida bebidaSpeed = new Bebida(1000, "Speed");
-		Plato platoEmpanadas = new Plato("Empanadas", 8000);
+		var bebidaSpeed = new Bebida(1000, "Speed");
+		var platoEmpanadas = new Plato("Empanadas", 8000);
 
-		Pedido pedido = new Pedido(LocalDate.now(), LocalTime.now());
+		var pedido = new Pedido(LocalDate.now(), LocalTime.now());
 		pedido.agregarPlato(platoEmpanadas, 1);
 		pedido.agregarBebida(bebidaSpeed, 2);
 		pedido.confirmarPedido();
 
-		TarjetaCredito tarjetaCredito = new TarjetaCredito(23453423, "45260989", 11000, "Mastercard", new DescuentoMastercard(2));
+		var tarjetaCredito = new TarjetaCredito(23453423, "45260989", 11000, "Mastercard", new DescuentoMastercard(2));
 		tarjetaCredito.pagar(pedido.calcularCostoTotalBebidas(), pedido.calcularCostoTotalPlatos(), 2);
 
 		assertEquals(963, tarjetaCredito.obtenerSaldo());
@@ -45,15 +45,15 @@ class TarjetaCreditoTest {
 
 	@Test
 	public void pagarConTarjetaComarcaPlus() {
-		Bebida bebidaSpeed = new Bebida(1000, "Speed");
-		Plato platoEmpanadas = new Plato("Empanadas", 8000);
+		var bebidaSpeed = new Bebida(1000, "Speed");
+		var platoEmpanadas = new Plato("Empanadas", 8000);
 
-		Pedido pedido = new Pedido(LocalDate.now(), LocalTime.now());
+		var pedido = new Pedido(LocalDate.now(), LocalTime.now());
 		pedido.agregarPlato(platoEmpanadas, 1);
 		pedido.agregarBebida(bebidaSpeed, 2);
 		pedido.confirmarPedido();
 
-		TarjetaCredito tarjetaCredito = new TarjetaCredito(23453423, "45260989", 11000, "Comarca Plus", new DescuentoComarcaPlus(2));
+		var tarjetaCredito = new TarjetaCredito(23453423, "45260989", 11000, "Comarca Plus", new DescuentoComarcaPlus(2));
 		tarjetaCredito.pagar(pedido.calcularCostoTotalBebidas(), pedido.calcularCostoTotalPlatos(), 2);
 
 		assertEquals(1004, tarjetaCredito.obtenerSaldo());
@@ -61,15 +61,15 @@ class TarjetaCreditoTest {
 
 	@Test
 	public void pagarConTarjetaViedma() {
-		Bebida bebidaSpeed = new Bebida(1000, "Speed");
-		Plato platoEmpanadas = new Plato("Empanadas", 8000);
+		var bebidaSpeed = new Bebida(1000, "Speed");
+		var platoEmpanadas = new Plato("Empanadas", 8000);
 
-		Pedido pedido = new Pedido(LocalDate.now(), LocalTime.now());
+		var pedido = new Pedido(LocalDate.now(), LocalTime.now());
 		pedido.agregarPlato(platoEmpanadas, 1);
 		pedido.agregarBebida(bebidaSpeed, 2);
 		pedido.confirmarPedido();
 
-		TarjetaCredito tarjetaCredito = new TarjetaCredito(23453423, "45260989", 11000, "Viedma", new Descuento(0));
+		var tarjetaCredito = new TarjetaCredito(23453423, "45260989", 11000, "Viedma", new Descuento(0));
 		tarjetaCredito.pagar(pedido.calcularCostoTotalBebidas(), pedido.calcularCostoTotalPlatos(), 2);
 
 		assertEquals(800, tarjetaCredito.obtenerSaldo());
