@@ -1,4 +1,4 @@
-package modelo;
+package ar.edu.unrn.modelo;
 
 public class DescuentoVisa extends Descuento {
 	public DescuentoVisa(double descuento) {

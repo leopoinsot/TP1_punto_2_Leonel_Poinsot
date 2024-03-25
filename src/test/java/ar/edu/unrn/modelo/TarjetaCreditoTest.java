@@ -1,10 +1,9 @@
-package modelo;
+package ar.edu.unrn.modelo;
 
-import exceptions.PedidoConfirmadoExcepcion;
-import exceptions.SaldoInsuficienteExcepcion;
+import ar.edu.unrn.api.IApi;
+import ar.edu.unrn.api.PersistenceApi;
 import org.junit.jupiter.api.Test;
 
-import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -22,10 +21,9 @@ class TarjetaCreditoTest {
 		pedido.agregarPlato(platoEmpanadas, 1);
 		pedido.agregarBebida(bebidaSpeed, 2);
 		pedido.confirmarPedido();
-		var registroCostoPedido = new RegistroCostoPedido() {
+		var registroCostoPedido = new PersistenceApi() {
 			private boolean seLlamo = false;
 
-			@Override
 			public void registrar(String fecha, String hora, double monto) throws IOException {
 				seLlamo = true;
 			}
@@ -50,10 +48,9 @@ class TarjetaCreditoTest {
 		pedido.agregarPlato(platoEmpanadas, 1);
 		pedido.agregarBebida(bebidaSpeed, 2);
 		pedido.confirmarPedido();
-		var registroCostoPedido = new RegistroCostoPedido() {
+		var registroCostoPedido = new PersistenceApi() {
 			private boolean seLlamo = false;
 
-			@Override
 			public void registrar(String fecha, String hora, double monto) throws IOException {
 				seLlamo = true;
 			}
@@ -79,10 +76,9 @@ class TarjetaCreditoTest {
 		pedido.agregarPlato(platoEmpanadas, 1);
 		pedido.agregarBebida(bebidaSpeed, 2);
 		pedido.confirmarPedido();
-		var registroCostoPedido = new RegistroCostoPedido() {
+		var registroCostoPedido = new PersistenceApi() {
 			private boolean seLlamo = false;
 
-			@Override
 			public void registrar(String fecha, String hora, double monto) throws IOException {
 				seLlamo = true;
 			}
@@ -108,10 +104,9 @@ class TarjetaCreditoTest {
 		pedido.agregarPlato(platoEmpanadas, 1);
 		pedido.agregarBebida(bebidaSpeed, 2);
 		pedido.confirmarPedido();
-		var registroCostoPedido = new RegistroCostoPedido() {
+		var registroCostoPedido = new PersistenceApi() {
 			private boolean seLlamo = false;
 
-			@Override
 			public void registrar(String fecha, String hora, double monto) throws IOException {
 				seLlamo = true;
 			}

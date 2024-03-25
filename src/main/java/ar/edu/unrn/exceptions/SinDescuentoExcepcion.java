@@ -1,4 +1,4 @@
-package exceptions;
+package ar.edu.unrn.exceptions;
 
 public class SinDescuentoExcepcion extends RuntimeException {
 	private static final long serialVersionUID = 1L;

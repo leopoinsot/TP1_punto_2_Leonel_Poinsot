@@ -1,4 +1,4 @@
-package modelo;
+package ar.edu.unrn.modelo;
 
 public class DescuentoComarcaPlus extends Descuento {
 	public DescuentoComarcaPlus(double descuento) {

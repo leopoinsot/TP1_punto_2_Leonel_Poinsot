@@ -1,9 +1,8 @@
-package modelo;
+package ar.edu.unrn.modelo;
 
-import exceptions.SaldoInsuficienteExcepcion;
+import ar.edu.unrn.api.IApi;
 
 import java.io.IOException;
-import java.io.Writer;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -14,11 +13,11 @@ public class TarjetaCredito {
 	private String marca;
 	private Descuento descuento;
 
-	private RegistroCostoPedido registroCostoPedido;
+	private IApi registroCostoPedido;
 
 	public TarjetaCredito(int numeroTarjeta, String dni,
 						  double saldoActual, String marca, Descuento descuento,
-						  RegistroCostoPedido registroCostoPedido) {
+						  IApi registroCostoPedido) {
 		super();
 		this.numeroTarjeta = numeroTarjeta;
 		this.dni = dni;
@@ -30,7 +29,7 @@ public class TarjetaCredito {
 
 	public void pagar(double costoTotalBebidas, double costoTotalPlatos, double porcentajePropina) throws IOException {
 		double montoDescuento = (aplicarDescuento(costoTotalBebidas, costoTotalPlatos) * (1 + porcentajePropina / 100));
-		registroCostoPedido.registrar(FormatoFecha.aplicarFormatoEuropeo(LocalDate.now()), LocalTime.now().toString(), montoDescuento);
+		registroCostoPedido.registrar(LocalDate.now(), LocalTime.now(), montoDescuento);
 		saldoActual = saldoActual - montoDescuento;
 	}
 

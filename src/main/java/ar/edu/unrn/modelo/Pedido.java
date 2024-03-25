@@ -1,6 +1,6 @@
-package modelo;
+package ar.edu.unrn.modelo;
 
-import exceptions.PedidoConfirmadoExcepcion;
+import ar.edu.unrn.exceptions.PedidoConfirmadoExcepcion;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
